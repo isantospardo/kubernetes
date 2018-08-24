@@ -235,6 +235,7 @@ func (m *csiBlockMapper) MapDevice(devicePath, globalMapPath, volumeMapPath, vol
 		csiSource.VolumeAttributes,
 		nodePublishSecrets,
 		fsTypeBlockName,
+		[]string{},
 	)
 
 	if err != nil {

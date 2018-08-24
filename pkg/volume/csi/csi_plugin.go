@@ -295,8 +295,11 @@ func (p *csiPlugin) ConstructVolumeSpec(volumeName, mountPath string) (*volume.S
 
 func (p *csiPlugin) SupportsMountOption() bool {
 	// TODO (vladimirvivien) use CSI VolumeCapability.MountVolume.mount_flags
-	// to probe for the result for this method:w
-	return false
+	// to probe for the result for this method
+	// (bswartz) Until the CSI spec supports probing, our only option is to
+	// make plugins register their support for mount options or lack thereof
+	// directly with kubernetes.
+	return true
 }
 
 func (p *csiPlugin) SupportsBulkVolumeVerification() bool {

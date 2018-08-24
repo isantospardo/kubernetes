@@ -186,6 +186,7 @@ func (c *csiMountMgr) SetUpAt(dir string, fsGroup *int64) error {
 		attribs,
 		nodePublishSecrets,
 		fsType,
+		c.spec.PersistentVolume.Spec.MountOptions,
 	)
 
 	if err != nil {
